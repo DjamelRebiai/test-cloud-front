@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Intelligence Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <h1><i class="fa-solid fa-envelope-open-text"></i> Email Intelligence Hub</h1>
+            <p>Classify text & securely fetch your Gmail via OAuth2.</p>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <!-- Classification Section -->
+        <section class="card glass">
+            <h2><i class="fa-solid fa-shield-halved"></i> Spam & Content Classifier (ML)</h2>
+            <p class="subtitle">Enter any text or email snippet to classify it as Important, Normal, or Spam using our ML model.</p>
+            
+            <form id="classify-form">
+                <div class="input-group">
+                    <label for="email-text">Email Content</label>
+                    <textarea id="email-text" rows="5" placeholder="Paste the content you want to analyze here..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa-solid fa-magnifying-glass"></i> Analyze Content
+                </button>
+            </form>
+
+            <div id="classification-result" class="result-box hidden">
+                <h3>Classification Result:</h3>
+                <div class="badge-container">
+                    <span id="class-badge" class="badge"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Email Fetcher Section (Google OAuth2) -->
+        <section class="card glass">
+            <h2><i class="fa-solid fa-inbox"></i> Secure Gmail Fetcher (OAuth2)</h2>
+            <p class="subtitle">Connect your Google account securely using the provided client_secret credentials.</p>
+            
+            <div id="auth-section">
+                <!-- Will be populated by JS -->
+                <button id="login-google" class="btn btn-secondary">
+                    <i class="fa-brands fa-google"></i> Sign in with Google
+                </button>
+            </div>
+
+            <div id="fetch-controls" class="hidden">
+                <div class="input-group">
+                    <label for="email-limit">Number of Emails to Fetch</label>
+                    <input type="number" id="email-limit" min="1" max="50" value="5" required>
+                </div>
+                
+                <button id="fetch-emails-btn" class="btn btn-secondary">
+                    <i class="fa-solid fa-cloud-arrow-down"></i> Fetch My Emails
+                </button>
+            </div>
+
+            <div id="fetch-loading" class="loading-spinner hidden">
+                <i class="fa-solid fa-circle-notch fa-spin"></i> Fetching your emails...
+            </div>
+
+            <div id="fetch-error" class="error-box hidden"></div>
+
+            <div id="emails-container" class="emails-list hidden">
+                <h3>Recent Emails</h3>
+                <ul id="email-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
