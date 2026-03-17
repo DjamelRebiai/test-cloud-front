@@ -1,3 +1,6 @@
+/**
+ * Email Intelligence Hub - Frontend
+ */
 document.addEventListener('DOMContentLoaded', () => {
 
     // ===========================
