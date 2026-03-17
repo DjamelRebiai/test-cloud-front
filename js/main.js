@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Configuration
     // ===========================
     // Update this to your Render URL when deploying
-    const BACKEND_URL = "http://127.0.0.1:5000";
+    const BACKEND_URL = "https://test-cloud-back.onrender.com";
 
     // ===========================
     // Authentication Flow
